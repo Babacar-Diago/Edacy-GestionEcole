@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Ajout d'une nouvelle classe</h2>
+<div mat-dialog-content>
+
+  <form #f="ngForm">
+    <div class="form-group">
+      <label class="control-label">Nom de la classe</label>
+      <input type="text" class="form-control" name="nom" ngModel="" required>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Niveau de la classe</label>
+      <input type="text" class="form-control" name="niveau" ngModel="" required>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Série de la classe</label>
+      <input type="text" class="form-control" name="serie" ngModel="" required>
+    </div>
+
+    <button class="btn btn-danger" (click)="onNoClick()">Cancel</button>
+    <button [disabled]="!f.valid" class="btn btn-success left" cdkFocusInitial
+      (click)="addNewClasse(f.value)">Save</button>
+
+  </form>
+
+</div>
+

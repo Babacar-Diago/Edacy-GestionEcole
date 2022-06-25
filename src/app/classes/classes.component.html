@@ -1,0 +1,35 @@
+<br>
+<h1>Liste des classes</h1>
+<div class="container">
+  <div class="demo-button-container">
+    <button  mat-raised-button class="demo-button"
+    (click)="addClasse()">
+      + Nouvelle classe
+    </button>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">NOM</th>
+        <th scope="col">NIVEAU</th>
+        <th scope="col">SERIE</th>
+        <th scope="col">MODIFIER</th>
+        <th scope="col">SUPRIMER</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let classe of classes">
+        <th scope="row">{{classe.id}}</th>
+        <td>{{classe.nom}}</td>
+        <td>{{classe.niveau}}</td>
+        <td>{{classe.serie}}</td>
+        <td><button (click)="openDialog(classe)" class="btn btn-outline-warning btn-sm">Modifier</button></td>
+        <td>
+          <button (click)="deleteClasse(classe.id)" class="btn btn-outline-danger btn-sm">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

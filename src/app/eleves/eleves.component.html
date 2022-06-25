@@ -1,0 +1,35 @@
+<br>
+<h1>Liste des élèves</h1>
+<div class="container">
+  <div class="demo-button-container">
+    <button  mat-raised-button class="demo-button"
+             (click)="openDialogAddEleve()">
+      + Nouveau élève
+    </button>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">NOM</th>
+      <th scope="col">PRENOM</th>
+      <th scope="col">CLASSE</th>
+      <th scope="col">MODIFIER</th>
+      <th scope="col">SUPRIMER</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let eleve of eleves">
+      <th scope="row">{{eleve.id}}</th>
+      <td>{{eleve.nom}}</td>
+      <td>{{eleve.prenom}}</td>
+      <td>{{eleve.classe.niveau}} {{eleve.classe.serie}}</td>
+      <td><button (click)="openDialog(eleve)" class="btn btn-outline-warning btn-sm">Modifier</button></td>
+      <td>
+        <button (click)="deleteEleve(eleve.id)" class="btn btn-outline-danger btn-sm">Supprimer</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

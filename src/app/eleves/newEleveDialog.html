@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Ajout d'un nouveau élève</h2>
+<div mat-dialog-content>
+
+  <form #f="ngForm">
+    <div class="form-group">
+      <label class="control-label">Nom élève</label>
+      <input type="text" class="form-control" name="nom" ngModel="" required>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Prénom élève</label>
+      <input type="text" class="form-control" name="prenom" ngModel="" required>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">classe</label>
+        <select name="classe" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
+          <option selected>Choisir un statut</option>
+          <option *ngFor="let classe of classes" (click)="getClasse(classe)">
+            {{classe.niveau}} {{classe.serie}}
+          </option>
+        </select>
+    </div>
+
+    <button class="btn btn-danger" (click)="onNoClick()">Cancel</button>
+    <button [disabled]="!f.valid" class="btn btn-success left" cdkFocusInitial
+            (click)="addNewEleve(f.value)">Save</button>
+  </form>
+
+</div>
+
